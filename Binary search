@@ -1,0 +1,21 @@
+def binary_search(arr,target):   #binary search function
+    start=0
+    end=len(arr)-1
+    mid=0
+    while start<=end:          #starting index  is always less than end index
+        mid=(start+end)//2
+        if(arr[mid]>target):
+            end=mid-1
+        elif(arr[mid]<target):
+            start=mid+1
+        else:                   #return position of element if present
+            return mid
+
+    return -1
+target=int(input("enter the target value to find"))   # input  of target from user 
+array=[10,20,30,60,90]                                #array
+position=binary_search(arr,target)
+if(position>0):
+    print("the element is at",position)
+else:                                                #if -1 return then element is not exist
+    print("element is not found")
