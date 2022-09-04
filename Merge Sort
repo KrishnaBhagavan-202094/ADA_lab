@@ -1,0 +1,34 @@
+def merge(a,b,arr):
+    i = j = k = 0
+    while i < len(a) and j < len(b):
+        if a[i] <= b[j]:              #Here we compare first elements of two arrays
+            arr[k] = a[i]             #if suppose left_arr element is smaller then  
+            i+=1                      #it is stored in the assigned index k in array arr
+        else:                         #this process stops when while condition is terminated
+            arr[k] = b[j]
+            j+=1
+        k+=1
+
+    while i < len(a):                 #as while condition terminates if either of the two 
+        arr[k] = a[i]                 #given conditions are not met then
+        i+=1                          #all the elements in the remaining array are added to array arr
+        k+=1
+    while j < len(b):
+        arr[k] = b[j]
+        j+=1
+        k+=1
+        
+def merge_sort(arr):
+    if len(arr) <= 1:                 #Here we return array if length is 1 
+        return                        #because there is nothing to sort a single element
+    
+    mid = len(arr)//2
+    left_arr = arr[:mid]              #here we take elements in array upto index mid into left_arr
+    right_arr = arr[mid:]             #here we take elements in array from index mid to end into right_arr
+    merge_sort(left_arr)              #we call the recursive function for left_arr
+    merge_sort(right_arr)             #we call the recursive function for right_arr
+    merge(left_arr, right_arr, arr)   #we merge two sorted arrays (left_arr and right_arr) in merge function
+
+Array=[7,3,6,4]
+merge_sort(Array)
+print(Array)
