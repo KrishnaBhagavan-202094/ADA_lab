@@ -34,7 +34,7 @@ class Graph:
 v = int(input("Enter Number of vertices: "))
 example_graph = Graph(v)
 num_edges = int(input("Enter number of edges: "))
-edges = [list(map(int, input("Enter edges : ").split(" "))) for i in range(num_edges)]
+edges = [list(map(int, input("Enter edge : ").split(" "))) for i in range(num_edges)]
 for edge in edges:
     v1, v2, w = edge
     example_graph.add_edge(v1, v2, w)
