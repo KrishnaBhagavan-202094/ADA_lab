@@ -20,7 +20,9 @@ class Graph():
         colour = [0] * self.V 
         if self.graphColourUtil(m, colour, 0) == False: 
             return False
-        print("Solution exist and Following are the assigned colours:")
+        col=set(colour)
+        print(f"Number of colours needed : {len(col)}")
+        print("Following are the assigned colours:")
         for c in colour: 
             print(c,end=" "), 
         return True
